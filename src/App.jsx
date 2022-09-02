@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from "./pages/home.jsx";
 import NA from "./pages/NA";
 import Lore from "./pages/about.jsx";
+import { ChakraProvider } from '@chakra-ui/react'
 
 import '@rainbow-me/rainbowkit/styles.css';
 
@@ -72,20 +73,20 @@ const wagmiClient = createClient({
 function App() {
  
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains} theme={midnightTheme()} modalSize="compact">
-        <Router>
-          <Nav />
-          <Routes>
-            <Route exact path="/" element ={<Home/>} />
-            <Route exact path="/about" element ={<Lore/>} />
-      
-            <Route exact path="*" element ={<NA/>} />
-          </Routes>
-          <Footer/>
-        </Router>
-      </RainbowKitProvider>
-    </WagmiConfig>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider chains={chains} theme={midnightTheme()} modalSize="compact">
+          <Router>
+            <Nav />
+            <Routes>
+              <Route exact path="/" element ={<Home/>} />
+              <Route exact path="/about" element ={<Lore/>} />
+        
+              <Route exact path="*" element ={<NA/>} />
+            </Routes>
+            <Footer/>
+          </Router>
+        </RainbowKitProvider>
+      </WagmiConfig>
   );
 }
 export default App;

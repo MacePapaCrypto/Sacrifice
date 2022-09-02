@@ -33,12 +33,14 @@ const Collections = () => {
                 console.log(error);
             }
         });
+
         useMemo(() => {
             for(let i = 0; i < data; i++) {
                 contractOneIndexes[i] = i;
             }
             console.log(contractOneIndexes);
         }, []);
+
         return(
             isSuccess && contractOneIndexes.length > 0 && contractTwoIndexes.length > 0 ?
             <>
@@ -62,12 +64,14 @@ const Collections = () => {
                 console.log(error);
             }
         });
+
         useMemo(() => {
             for(let i = 0; i < data; i++) {
                 contractTwoIndexes[i] = i;
             }
             console.log(contractTwoIndexes);
         }, []);
+
         return(
             isSuccess && contractTwoIndexes.length > 0 && contractTwoIndexes.length > 0 ?
             <>
@@ -87,7 +91,7 @@ const Collections = () => {
             <div className='select-steps'>
                 <div className='step'>
                     <h1>Select tokens to burn</h1>
-                    <h2>Trash NFTs, get FTM</h2>
+                    <h1>Trash NFTs, get FTM</h1>
                     <div style={{display: "grid"}}>
                         <h4 style={{color: "white"}}>Contract One: {ccOneContract.addressOrName}</h4>
                         <MappedContractOne/>
