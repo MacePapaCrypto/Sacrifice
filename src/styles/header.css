@@ -1,0 +1,42 @@
+.header-container {
+  height: 30vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: max-content;
+  flex-flow: row wrap;
+}
+.header-container .header-content {
+  flex-wrap: wrap;
+  height: 30vh;
+  padding-top: 100px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+h1 {
+  font-size: 24px;
+  color: white;
+}
+.header-content {
+  display: flex;
+}
+.sacrafice {
+  height: 50vh;
+  
+}
+.sacrafice-title h1 {
+  align-items: center;
+  color: white;
+}
+
+
+
+
+
+
+@media only screen and (max-width: 900px) {
+}

@@ -1,0 +1,55 @@
+/* This is the styling for the nav container */
+.navbar {
+  width: 100vw;
+  height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+/* This is the styling for the nav content */
+
+.navbar-content {
+  padding-top: 20px;
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  display: flex;
+}
+
+/* This is the styling for the left nav container */
+
+.left-nav {
+  color: #000;
+  flex: 30%;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+}
+
+.left-nav img {
+  width: 50px;
+}
+/* This is the styling for the right nav container */
+
+.right-nav {
+  flex: 70%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+
+}
+
+.right-nav a {
+  color: rgb(230, 230, 230);
+  font-size: large;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 15px;
+  
+}
+
+.right-nav a:hover {
+  color: white;
+  
+}
+
