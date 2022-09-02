@@ -74,7 +74,15 @@ function App() {
  
   return (
       <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains} theme={midnightTheme()} modalSize="compact">
+        <RainbowKitProvider 
+          chains={chains}
+          theme={midnightTheme({
+            accentColor: "white",
+            accentColorForeground: "black",
+            borderRadius: "none",
+          })}
+          modalSize="compact"
+        >
           <Router>
             <Nav />
             <Routes>

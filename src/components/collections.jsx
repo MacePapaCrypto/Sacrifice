@@ -42,16 +42,19 @@ const Collections = () => {
         }, []);
 
         return(
-            isSuccess && contractOneIndexes.length > 0 && contractTwoIndexes.length > 0 ?
+            isSuccess && contractOneIndexes.length > 0 ?
             <>
                 {contractOneIndexes.map((index) => (
                     <LoadContractOne key={index.toString()} tokenToSearch={index}/>
                 ))}
             </> : 
             isLoading ?
-            <p>...fetching contract one</p> :
+            <p style={{color: "white"}}>...fetching contract one</p> :
             isError ?
-            <p>error loading tokens from contract one</p> : <></>
+            <p style={{color: "white"}}>error loading tokens from contract one</p> : 
+            contractOneIndexes.length === 0 ? 
+            <p style={{color: "white"}}>You don't have any trash tokens for this contract</p> :
+            <></>
         );
     }
 
@@ -73,16 +76,19 @@ const Collections = () => {
         }, []);
 
         return(
-            isSuccess && contractTwoIndexes.length > 0 && contractTwoIndexes.length > 0 ?
+            isSuccess && contractTwoIndexes.length > 0 ?
             <>
                 {contractTwoIndexes.map((index) => (
                     <LoadContractTwo key={index.toString()} tokenToSearch={index}/>
                 ))}
             </> :
             isLoading ?
-            <p>...fetching contract two</p> :
+            <p style={{color: "white"}}>...fetching contract two</p> :
             isError ?
-            <p>error loading tokens from contract two</p> : <></>
+            <p style={{color: "white"}}>error loading tokens from contract two</p> : 
+            contractTwoIndexes.length === 0 ? 
+            <p style={{color: "white"}}>You don't have any trash tokens for this contract</p> :
+            <></>
         );
     }
 
@@ -91,13 +97,13 @@ const Collections = () => {
             <div className='select-steps'>
                 <div className='step'>
                     <h1>Select tokens to burn</h1>
-                    <h1>Trash NFTs, get FTM</h1>
+                    <p style={{color: "white"}}><b>Trash NFTs, get FTM</b></p>
                     <div style={{display: "grid"}}>
-                        <h4 style={{color: "white"}}>Contract One: {ccOneContract.addressOrName}</h4>
+                        <h4 style={{color: "white"}}><b>Contract One:</b> {ccOneContract.addressOrName}</h4>
                         <MappedContractOne/>
                     </div>
                     <div style={{display: "grid"}}>
-                        <h4 style={{color: "white"}}>Contract Two: {ccTwoContract.addressOrName}</h4>
+                        <h4 style={{color: "white"}}><b>Contract Two:</b> {ccTwoContract.addressOrName}</h4>
                         <MappedContractTwo/>
                     </div>
                 </div>
