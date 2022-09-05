@@ -5,7 +5,7 @@ import ccABI from '../contractABI/ccABI.json';
 import { useContractRead, useAccount } from 'wagmi';
 import LoadContractOne from './LoadContractOne';
 import LoadContractTwo from './LoadContractTwo';
-import DynamicTokenLoad from './DynamicTokenLoad';
+import Claims from "../components/Claims";
 
 const Collections = () => {
 
@@ -96,8 +96,9 @@ const Collections = () => {
         <div className="select-container">
             <div className='select-steps'>
                 <div className='step'>
+                    <Claims/>
+                    <p style={{color: "white", justifyContent: "center", marginTop: "1rem"}}><b style={{justifyContent: "center"}}>Trash NFTs, get FTM</b></p>
                     <h1>Select tokens to burn</h1>
-                    <p style={{color: "white"}}><b>Trash NFTs, get FTM</b></p>
                     <div style={{display: "grid"}}>
                         <h4 style={{color: "white"}}><b>Contract One:</b> {ccOneContract.addressOrName}</h4>
                         <MappedContractOne/>

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import '../styles/home.css';
 import Header from "../components/header";
-import Sacrafice from "../components/sacrafice";
 import Tokens from "../components/collections";
 import { useAccount } from 'wagmi';
+import Claims from "../components/Claims";
 
 function Home() {
 
@@ -17,9 +17,9 @@ function Home() {
                 <div style={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
                     <p>Connect Wallet to Sacrifice</p>
                 </div> :
-                <>
+                <div style={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
                     <Tokens />
-                </>
+                </div>
             }
         </div>
     );

@@ -6,7 +6,7 @@ import { useToast } from '@chakra-ui/react';
 
 const LoadContractTwo = (props) => {
 
-    const toast = useToast;
+    const toast = useToast();
 
     const ccTwoContract = {
         addressOrName: '0xD6647b1967c4495000a80B2912521F5e2C429A18',
@@ -17,12 +17,15 @@ const LoadContractTwo = (props) => {
 
     const { address, isConnecting, isDisconnected } = useAccount();
 
+    let tokenID = 0;
+
     const { data, error, isError, isSuccess } = useContractRead({
         ...ccTwoContract,
         functionName: 'tokenOfOwnerByIndex',
         args: [address, props.tokenToSearch],
         onSuccess(data) {
             console.log("C2", data);
+            tokenID = data;
         },
         onError(error) {
             console.log("C2", error);
@@ -32,7 +35,7 @@ const LoadContractTwo = (props) => {
     const { config, error: prepError } = usePrepareContractWrite({
         ...ccTwoContract,
         functionName: 'transferFrom',
-        args: [address, trashcanAddress, data.toString()],
+        args: [address, trashcanAddress, tokenID],
         onError(prepError) {
             console.log("Error in prep 2: ", prepError);
             console.log("Address From: ", address);

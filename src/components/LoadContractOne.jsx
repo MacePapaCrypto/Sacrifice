@@ -17,12 +17,15 @@ const LoadContractOne = (props) => {
 
     const { address, isConnecting, isDisconnected } = useAccount();
 
+    let tokenID = 0;
+
     const { data, error, isError, isSuccess } = useContractRead({
         ...ccOneContract,
         functionName: 'tokenOfOwnerByIndex',
         args: [address, props.tokenToSearch],
         onSuccess(data) {
             console.log("C1", data);
+            tokenID = data;
         },
         onError(error) {
             console.log("C1", error);
@@ -32,7 +35,7 @@ const LoadContractOne = (props) => {
     const { config, error: prepError } = usePrepareContractWrite({
         ...ccOneContract,
         functionName: 'transferFrom',
-        args: [address, trashcanAddress, data.toString()],
+        args: [address, trashcanAddress, tokenID],
         onError(prepError) {
             console.log("Error in prep 1: ", prepError);
             console.log("Address From: ", address);

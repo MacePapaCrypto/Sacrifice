@@ -7,7 +7,7 @@ function Header() {
     return <div className="header-container">
 
         <div className="header-content">
-            <img src={Header_IMG} />
+            <img style={{height: "100%", width: "100%"}} src={Header_IMG} />
         </div>
 
     </div>
