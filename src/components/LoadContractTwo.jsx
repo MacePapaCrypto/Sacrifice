@@ -1,5 +1,5 @@
 import { useContractRead, useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi';
-import ccABI from '../contractABI/ccABI.json';
+import ccTwoABI from '../contractABI/ccTwoABI.json';
 import '../styles/select.css'
 import React, { useEffect, useState } from 'react';
 import { useToast } from '@chakra-ui/react';
@@ -10,10 +10,10 @@ const LoadContractTwo = (props) => {
 
     const ccTwoContract = {
         addressOrName: '0xD6647b1967c4495000a80B2912521F5e2C429A18',
-        contractInterface: ccABI,
+        contractInterface: ccTwoABI,
     }
 
-    const trashcanAddress = '0x06DDA54bF808219b6eb57f58eCA37Fa112844Ce0';
+    const trashcanAddress = '0x544F5e4a0187E84435adBb6D20997bc735B0792C';
 
     const { address, isConnecting, isDisconnected } = useAccount();
 
@@ -35,7 +35,7 @@ const LoadContractTwo = (props) => {
 
     const { config, error: prepError } = usePrepareContractWrite({
         ...ccTwoContract,
-        functionName: 'transferFrom',
+        functionName: 'safeTransferFrom',
         args: [address, trashcanAddress, tokenId !== undefined ? tokenId.toString() : id],
         onError(prepError) {
             console.log("Error in prep 2: ", prepError);

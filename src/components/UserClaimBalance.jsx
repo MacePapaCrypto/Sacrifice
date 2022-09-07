@@ -9,7 +9,7 @@ const UserClaimBalance = () => {
     const [claimableFTM, setClaimableFTM] = useState(0);
 
     const trashContract = {
-        addressOrName: "0x06DDA54bF808219b6eb57f58eCA37Fa112844Ce0",
+        addressOrName: "0x544F5e4a0187E84435adBb6D20997bc735B0792C",
         contractInterface: trashABI,
     }
 

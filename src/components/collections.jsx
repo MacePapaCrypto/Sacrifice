@@ -1,6 +1,7 @@
 import '../styles/select.css'
 import React, { useEffect } from 'react';
-import ccABI from '../contractABI/ccABI.json';
+import ccOneABI from '../contractABI/ccOneABI.json';
+import ccTwoABI from '../contractABI/ccTwoABI.json';
 import { useContractRead, useAccount } from 'wagmi';
 import LoadContractOne from './LoadContractOne';
 import LoadContractTwo from './LoadContractTwo';
@@ -13,12 +14,12 @@ const Collections = () => {
 
     const ccOneContract = {
         addressOrName: '0xBcE593d80B889C5F89819bE4be80Bd8396AAdEA9',
-        contractInterface: ccABI,
+        contractInterface: ccOneABI,
     }
 
     const ccTwoContract = {
         addressOrName: '0xD6647b1967c4495000a80B2912521F5e2C429A18',
-        contractInterface: ccABI,
+        contractInterface: ccTwoABI,
     }
 
     const { address, isConnecting, isDisconnected } = useAccount();
