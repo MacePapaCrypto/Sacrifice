@@ -20,7 +20,7 @@ const UserClaimBalance = () => {
         functionName: 'sorryBalance',
         args: [address],
         onSuccess(data) {
-            setClaimableFTM(ethers.utils.formatEther(data, 'ether'));
+            setClaimableFTM(data !== undefined ? data.toString() : 0);
         },
         onError(error) {
             console.log("Balance Read Error", error);
