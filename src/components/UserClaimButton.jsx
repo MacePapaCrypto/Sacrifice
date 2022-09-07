@@ -1,5 +1,5 @@
 import '../styles/select.css'
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import trashABI from '../contractABI/trashABI.json';
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi';
 import { useToast } from '@chakra-ui/react';
@@ -7,9 +7,10 @@ import { useToast } from '@chakra-ui/react';
 const UserClaimButton = () => {
 
     const toast = useToast();
+    const [isPrepError, setPrepError] = useState(false);
 
     const trashContract = {
-        addressOrName: "0x5Dd273CaaEE902bbeE70114A357640806F3a4ece",
+        addressOrName: "0x06DDA54bF808219b6eb57f58eCA37Fa112844Ce0",
         contractInterface: trashABI,
     }
 
@@ -20,7 +21,10 @@ const UserClaimButton = () => {
             value: 0
         },
         onError(prepError) {
-            console.log("Error in prep 1: ", prepError);
+            console.log("Error in prep 1: ", prepError.name);
+            if(prepError.message) {
+                setPrepError(true);
+            }
         }
     });
 
@@ -69,6 +73,8 @@ const UserClaimButton = () => {
             {
                 txLoading ? 
                 <button disabled>...Claiming</button> :
+                isPrepError ?
+                <p>No money to collect, Fren!</p> :
                 <button onClick={() => write?.()}>Claim Monies</button>
             }
         </div>

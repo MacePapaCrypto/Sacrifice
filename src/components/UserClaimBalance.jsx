@@ -9,7 +9,7 @@ const UserClaimBalance = () => {
     const [claimableFTM, setClaimableFTM] = useState(0);
 
     const trashContract = {
-        addressOrName: "0x5Dd273CaaEE902bbeE70114A357640806F3a4ece",
+        addressOrName: "0x06DDA54bF808219b6eb57f58eCA37Fa112844Ce0",
         contractInterface: trashABI,
     }
 
@@ -29,7 +29,7 @@ const UserClaimBalance = () => {
 
     return(
         <div style={{width: "100%", justifyContent: "center", alignContent: "center"}}>
-            <h5 style={{color: "white"}}>Claimable FTM: {claimableFTM}</h5>
+            <h4 style={{color: "white"}}>Claimable FTM: {claimableFTM}</h4>
         </div>
     )
 }

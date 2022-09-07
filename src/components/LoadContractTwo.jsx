@@ -13,19 +13,20 @@ const LoadContractTwo = (props) => {
         contractInterface: ccABI,
     }
 
-    const trashcanAddress = '0x618943dcf871C947Eb7D7ecfF48f153ec7dEA49B';
+    const trashcanAddress = '0x06DDA54bF808219b6eb57f58eCA37Fa112844Ce0';
 
     const { address, isConnecting, isDisconnected } = useAccount();
 
-    let tokenID = 0;
+    let id = 0;
 
-    const { data, error, isError, isSuccess } = useContractRead({
+    const { data: tokenId, error, isError, isSuccess } = useContractRead({
         ...ccTwoContract,
         functionName: 'tokenOfOwnerByIndex',
         args: [address, props.tokenToSearch],
-        onSuccess(data) {
-            console.log("C2", data);
-            tokenID = data;
+        onSuccess(tokenId) {
+            console.log("C2", tokenId.toString());
+            id = tokenId.toString();
+            console.log(id);
         },
         onError(error) {
             console.log("C2", error);
@@ -35,12 +36,12 @@ const LoadContractTwo = (props) => {
     const { config, error: prepError } = usePrepareContractWrite({
         ...ccTwoContract,
         functionName: 'transferFrom',
-        args: [address, trashcanAddress, tokenID],
+        args: [address, trashcanAddress, tokenId !== undefined ? tokenId.toString() : id],
         onError(prepError) {
             console.log("Error in prep 2: ", prepError);
             console.log("Address From: ", address);
             console.log("Address To: ", trashcanAddress);
-            console.log("Token Id: ", props.tokenToSearch);
+            console.log("Token Id: ", tokenId !== undefined ? tokenId.toString() : id);
         }
     });
 
@@ -87,7 +88,7 @@ const LoadContractTwo = (props) => {
     return(
         isSuccess ?
         <>
-            <p>{data.toString()}</p>
+            <p>{tokenId.toString()}</p>
             <button onClick={() => write?.()}>Throw Away NFT</button>
         </> :
         isError ?

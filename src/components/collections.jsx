@@ -1,6 +1,5 @@
 import '../styles/select.css'
-import React, { useMemo } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
 import ccABI from '../contractABI/ccABI.json';
 import { useContractRead, useAccount } from 'wagmi';
 import LoadContractOne from './LoadContractOne';
@@ -34,12 +33,12 @@ const Collections = () => {
             }
         });
 
-        useMemo(() => {
+        useEffect(() => {
             for(let i = 0; i < data; i++) {
                 contractOneIndexes[i] = i;
             }
             console.log(contractOneIndexes);
-        }, []);
+        }, [data, contractOneIndexes]);
 
         return(
             isSuccess && contractOneIndexes.length > 0 ?
@@ -68,12 +67,12 @@ const Collections = () => {
             }
         });
 
-        useMemo(() => {
+        useEffect(() => {
             for(let i = 0; i < data; i++) {
                 contractTwoIndexes[i] = i;
             }
             console.log(contractTwoIndexes);
-        }, []);
+        }, [data, contractTwoIndexes]);
 
         return(
             isSuccess && contractTwoIndexes.length > 0 ?

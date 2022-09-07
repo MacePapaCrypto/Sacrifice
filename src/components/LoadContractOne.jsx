@@ -6,26 +6,27 @@ import { useToast } from '@chakra-ui/react';
 
 const LoadContractOne = (props) => {
 
-    const toast = useToast;
+    const toast = useToast();
 
     const ccOneContract = {
         addressOrName: '0xBcE593d80B889C5F89819bE4be80Bd8396AAdEA9',
         contractInterface: ccABI,
     }
 
-    const trashcanAddress = '0x618943dcf871C947Eb7D7ecfF48f153ec7dEA49B';
+    const trashcanAddress = '0x06DDA54bF808219b6eb57f58eCA37Fa112844Ce0';
 
     const { address, isConnecting, isDisconnected } = useAccount();
 
-    let tokenID = 0;
+    let id = 0;
 
-    const { data, error, isError, isSuccess } = useContractRead({
+    const { data: tokenId, error, isError, isSuccess } = useContractRead({
         ...ccOneContract,
         functionName: 'tokenOfOwnerByIndex',
         args: [address, props.tokenToSearch],
-        onSuccess(data) {
-            console.log("C1", data);
-            tokenID = data;
+        onSuccess(tokenId) {
+            console.log("C1", tokenId.toString());
+            id = tokenId.toString();
+            console.log(id);
         },
         onError(error) {
             console.log("C1", error);
@@ -35,12 +36,12 @@ const LoadContractOne = (props) => {
     const { config, error: prepError } = usePrepareContractWrite({
         ...ccOneContract,
         functionName: 'transferFrom',
-        args: [address, trashcanAddress, tokenID],
+        args: [address, trashcanAddress, tokenId !== undefined ? tokenId.toString() : id],
         onError(prepError) {
             console.log("Error in prep 1: ", prepError);
             console.log("Address From: ", address);
             console.log("Address To: ", trashcanAddress);
-            console.log("Token Id: ", props.tokenToSearch);
+            console.log("Token Id: ", tokenId !== undefined ? tokenId.toString() : id);
         }
     });
 
@@ -87,7 +88,7 @@ const LoadContractOne = (props) => {
     return(
         isSuccess ?
         <>
-            <p>{data.toString()}</p>
+            <p>{tokenId.toString()}</p>
             <button onClick={() => write?.()}>Throw Away NFT</button>
         </> :
         isError ?
