@@ -1,8 +1,9 @@
-import '../styles/select.css'
+import '../styles/select.css';
+import '../App.css';
 import React, { useState } from 'react';
 import trashABI from '../contractABI/trashABI.json';
 import { useContractRead, useAccount } from 'wagmi';
-import { ethers } from 'ethers';
+import { Typography } from '@mui/material';
 
 const UserClaimBalance = () => {
 
@@ -29,7 +30,9 @@ const UserClaimBalance = () => {
 
     return(
         <div style={{width: "100%", justifyContent: "center", alignContent: "center"}}>
-            <h4 style={{color: "white"}}>Claimable FTM: {claimableFTM}</h4>
+            <Typography variant="h5" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
+                Claimable FTM: {claimableFTM}
+            </Typography>
         </div>
     )
 }

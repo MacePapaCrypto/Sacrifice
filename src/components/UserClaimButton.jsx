@@ -1,8 +1,10 @@
-import '../styles/select.css'
+import '../styles/select.css';
+import '../App.css';
 import React, { useEffect, useState } from 'react';
 import trashABI from '../contractABI/trashABI.json';
 import { usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi';
 import { useToast } from '@chakra-ui/react';
+import { Typography } from '@mui/material';
 
 const UserClaimButton = () => {
 
@@ -71,10 +73,12 @@ const UserClaimButton = () => {
     return(
         <div style={{width: "100%", justifyContent: "center", alignContent: "center"}}>
             {
-                txLoading ? 
+                txIsLoading ? 
                 <button disabled>...Claiming</button> :
                 isPrepError ?
-                <p>No money to collect, Fren!</p> :
+                <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
+                    No money to collect, Fren!
+                </Typography> :
                 <button onClick={() => write?.()}>Claim Monies</button>
             }
         </div>

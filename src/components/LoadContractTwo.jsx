@@ -1,8 +1,10 @@
 import { useContractRead, useAccount, usePrepareContractWrite, useContractWrite, useWaitForTransaction } from 'wagmi';
 import ccTwoABI from '../contractABI/ccTwoABI.json';
-import '../styles/select.css'
+import '../styles/select.css';
+import '../App.css';
 import React, { useEffect, useState } from 'react';
 import { useToast } from '@chakra-ui/react';
+import { Typography } from '@mui/material';
 
 const LoadContractTwo = (props) => {
 
@@ -88,16 +90,32 @@ const LoadContractTwo = (props) => {
     return(
         isSuccess ?
         <>
-            <p>{tokenId.toString()}</p>
-            <button onClick={() => write?.()}>Throw Away NFT</button>
+            <div className="trash-container">
+                <div className="trash-card">
+                    <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="black" justifyContent="center" display="flex">
+                        {tokenId.toString()}
+                    </Typography>
+                    <button onClick={() => write?.()}>Throw Away Trash</button>
+                </div>
+            </div>
         </> :
         isError ?
         <>
-            <p>Error grabbing token id for index: {props.tokenToSearch}</p>
+            <div className="trash-container">
+                <div className="trash-card">
+                    <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="black">
+                        Error grabbing token id for index: {props.tokenToSearch}
+                    </Typography>
+                </div>
+            </div>
         </> :
         txError ?
         <>
-            <p>Error loading the write function</p>
+            <div className="trash-container">
+                <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                    Error loading the write function
+                </Typography>
+            </div>
         </> :
         txLoading ?
         <>

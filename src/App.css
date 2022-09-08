@@ -24,14 +24,14 @@ a {
 }
 
 button {
-  width: 100px;
+  width: auto;
   height: 30px;
   border-radius: 0px;
   font-size: medium;
   margin: 15px;
   border: none;
-  background-color: rgb(223, 223, 223);
-  color: black;
+  background-color: rgb(0, 0, 0);
+  color: white;
   cursor: pointer;
   justify-content: center;
 }

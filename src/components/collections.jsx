@@ -1,4 +1,5 @@
-import '../styles/select.css'
+import '../styles/select.css';
+import '../App.css';
 import React, { useEffect } from 'react';
 import ccOneABI from '../contractABI/ccOneABI.json';
 import ccTwoABI from '../contractABI/ccTwoABI.json';
@@ -6,6 +7,7 @@ import { useContractRead, useAccount } from 'wagmi';
 import LoadContractOne from './LoadContractOne';
 import LoadContractTwo from './LoadContractTwo';
 import Claims from "../components/Claims";
+import { Typography } from '@mui/material';
 
 const Collections = () => {
 
@@ -49,11 +51,17 @@ const Collections = () => {
                 ))}
             </> : 
             isLoading ?
-            <p style={{color: "white"}}>...fetching contract one</p> :
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                ...fetching contract one
+            </Typography>:
             isError ?
-            <p style={{color: "white"}}>error loading tokens from contract one</p> : 
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                error loading tokens from contract one
+            </Typography> : 
             contractOneIndexes.length === 0 ? 
-            <p style={{color: "white"}}>You don't have any trash tokens for this contract</p> :
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                You don't have any trash tokens for this contract
+            </Typography> :
             <></>
         );
     }
@@ -83,11 +91,17 @@ const Collections = () => {
                 ))}
             </> :
             isLoading ?
-            <p style={{color: "white"}}>...fetching contract two</p> :
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                ...fetching contract two
+            </Typography> :
             isError ?
-            <p style={{color: "white"}}>error loading tokens from contract two</p> : 
-            contractTwoIndexes.length === 0 ? 
-            <p style={{color: "white"}}>You don't have any trash tokens for this contract</p> :
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                error loading tokens from contract two
+            </Typography> : 
+            contractOneIndexes.length === 0 ? 
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+                You don't have any trash tokens for this contract
+            </Typography> :
             <></>
         );
     }
@@ -97,14 +111,28 @@ const Collections = () => {
             <div className='select-steps'>
                 <div className='step'>
                     <Claims/>
-                    <p style={{color: "white", justifyContent: "center", marginTop: "1rem"}}><b style={{justifyContent: "center"}}>Trash NFTs, get FTM</b></p>
-                    <h1>Select tokens to burn</h1>
+                    <Typography variant="h5" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
+                        Trash NFTs, get FTM
+                    </Typography>
+                    <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="white">
+                        Select tokens to burn
+                    </Typography>
                     <div style={{display: "grid"}}>
-                        <h4 style={{color: "white"}}><b>Contract One:</b> {ccOneContract.addressOrName}</h4>
+                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white">
+                            <b>Contract One:</b>
+                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white">
+                                {ccOneContract.addressOrName}
+                            </Typography>
+                        </Typography>
                         <MappedContractOne/>
                     </div>
                     <div style={{display: "grid"}}>
-                        <h4 style={{color: "white"}}><b>Contract Two:</b> {ccTwoContract.addressOrName}</h4>
+                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white">
+                            <b>Contract Two:</b>
+                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white">
+                                {ccTwoContract.addressOrName}
+                            </Typography>
+                        </Typography>
                         <MappedContractTwo/>
                     </div>
                 </div>

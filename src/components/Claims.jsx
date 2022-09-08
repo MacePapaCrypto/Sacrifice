@@ -1,4 +1,5 @@
-import '../styles/select.css'
+import '../styles/select.css';
+import '../App.css';
 import React from 'react';
 import UserClaimBalance from './UserClaimBalance';
 import UserClaimButton from './UserClaimButton';
