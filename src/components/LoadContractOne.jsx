@@ -93,7 +93,7 @@ const LoadContractOne = (props) => {
             <div className="trash-container">
                 <div className="trash-card">
                     <Typography variant="h6" color="white"  justifyContent="center" display="flex" marginTop="15px">
-                        {tokenId.toString()}
+                        Token ID: {tokenId.toString()}
                     </Typography>
                     <button onClick={() => write?.()}>Throw Away Trash</button>
                 </div>

@@ -52,7 +52,9 @@ const Collections = () => {
             isSuccess && contractOneIndexes.length > 0 ?
             <>
                 {contractOneIndexes.map((index) => (
-                    <LoadContractOne key={index.toString()} tokenToSearch={index}/>
+                    <Grid item xs={12} sm={6} md={4} lg={2}>
+                        <LoadContractOne key={index.toString()} tokenToSearch={index}/>
+                    </Grid>
                 ))}
             </> : 
             isLoading ?
@@ -95,8 +97,10 @@ const Collections = () => {
             isSuccess && contractTwoIndexes.length > 0 ?
             <>
                 {contractTwoIndexes.map((index) => (
-                    <LoadContractTwo key={index.toString()} tokenToSearch={index}/>
-                ))}
+                    <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
+                        <LoadContractTwo key={index.toString()} tokenToSearch={index}/>
+                    </Grid>
+                ))} 
             </> :
             isLoading ?
             <Typography variant="body1" color="white" marginBottom="15px">
@@ -135,9 +139,7 @@ const Collections = () => {
                                 </Typography>
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} md={4} >
-                            <MappedContractOne/>
-                        </Grid>
+                        <MappedContractOne/>
                     </Grid>
                     <Grid container spacing={4}>
                         <Grid item xs={12} lg={12}>
@@ -148,9 +150,7 @@ const Collections = () => {
                                 </Typography>
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} md={4}>
-                            <MappedContractTwo/>
-                        </Grid>
+                        <MappedContractTwo/>
                     </Grid>
                 </div>
             </div>

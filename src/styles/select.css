@@ -4,7 +4,7 @@
   grid-template-columns: auto auto auto;
   gap: 25px;
   padding: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
 }
 .trash-card {
