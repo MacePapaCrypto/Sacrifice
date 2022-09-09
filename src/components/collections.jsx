@@ -1,6 +1,6 @@
 import '../styles/select.css';
 import '../App.css';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ccOneABI from '../contractABI/ccOneABI.json';
 import ccTwoABI from '../contractABI/ccTwoABI.json';
 import { useContractRead, useAccount } from 'wagmi';
@@ -36,8 +36,12 @@ const Collections = () => {
             }
         });
 
+        const refBoundary = useRef(data);
         useEffect(() => {
-            for(let i = 0; i < data; i++) {
+            if(refBoundary.current > 20) {
+                refBoundary.current = 20;
+            }
+            for(let i = 0; i < refBoundary.current; i++) {
                 contractOneIndexes[i] = i;
             }
             console.log(contractOneIndexes);
@@ -76,8 +80,12 @@ const Collections = () => {
             }
         });
 
+        const refBoundary = useRef(data);
         useEffect(() => {
-            for(let i = 0; i < data; i++) {
+            if(refBoundary.current > 20) {
+                refBoundary.current = 20;
+            }
+            for(let i = 0; i < refBoundary.current; i++) {
                 contractTwoIndexes[i] = i;
             }
             console.log(contractTwoIndexes);
