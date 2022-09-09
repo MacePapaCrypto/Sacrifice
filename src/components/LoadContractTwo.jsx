@@ -15,7 +15,7 @@ const LoadContractTwo = (props) => {
         contractInterface: ccTwoABI,
     }
 
-    const trashcanAddress = '0x544F5e4a0187E84435adBb6D20997bc735B0792C';
+    const trashcanAddress = '0x0eF6D0E4780455Ce3A43b61D8A2D223417869a9d';
 
     const { address, isConnecting, isDisconnected } = useAccount();
 

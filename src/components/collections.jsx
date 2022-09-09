@@ -52,7 +52,7 @@ const Collections = () => {
             isSuccess && contractOneIndexes.length > 0 ?
             <>
                 {contractOneIndexes.map((index) => (
-                    <Grid item xs={12} sm={6} md={4} lg={2}>
+                    <Grid item xs={12} sm={6} md={4} lg={4}>
                         <LoadContractOne key={index.toString()} tokenToSearch={index}/>
                     </Grid>
                 ))}
@@ -97,7 +97,7 @@ const Collections = () => {
             isSuccess && contractTwoIndexes.length > 0 ?
             <>
                 {contractTwoIndexes.map((index) => (
-                    <Grid item xs={12} sm={6} md={4} lg={2} key={index}>
+                    <Grid item xs={12} sm={6} md={4} lg={4} key={index}>
                         <LoadContractTwo key={index.toString()} tokenToSearch={index}/>
                     </Grid>
                 ))} 
@@ -130,7 +130,7 @@ const Collections = () => {
                     <Typography variant="h6" color="white"  marginBottom="15px">
                         Select tokens to burn
                     </Typography>
-                    <Grid container spacing={2}>
+                    <Grid container spacing={4}>
                         <Grid item xs={12} lg={12}>
                             <Typography variant="h4" color="white" marginBottom="15px">
                                 <b>Contract One:</b>
