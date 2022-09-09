@@ -56,15 +56,15 @@ const Collections = () => {
                 ))}
             </> : 
             isLoading ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+            <Typography variant="body1" color="white" marginBottom="15px">
                 ...fetching contract one
             </Typography>:
             isError ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+            <Typography variant="body1" color="white" marginBottom="15px">
                 error loading tokens from contract one
             </Typography> : 
             contractOneIndexes.length === 0 ? 
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+            <Typography variant="body1" color="white" marginBottom="15px">
                 You don't have any trash tokens for this contract
             </Typography> :
             <></>
@@ -99,15 +99,15 @@ const Collections = () => {
                 ))}
             </> :
             isLoading ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+            <Typography variant="body1" color="white" marginBottom="15px">
                 ...fetching contract two
             </Typography> :
             isError ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+            <Typography variant="body1" color="white" marginBottom="15px">
                 error loading tokens from contract two
             </Typography> : 
             contractOneIndexes.length === 0 ? 
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+            <Typography variant="body1" color="white" marginBottom="15px">
                 You don't have any trash tokens for this contract
             </Typography> :
             <></>
@@ -120,17 +120,17 @@ const Collections = () => {
                 <div className='step'>
                     <Claims/>
                     
-                    <Typography variant="h5" fontFamily="arial, helvetica, sans-serif" color="white"  marginBottom="15px">
+                    <Typography variant="h5" color="white"  marginBottom="15px">
                         Trash NFTs, Get FTM
                     </Typography>
-                    <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="white"  marginBottom="15px">
+                    <Typography variant="h6" color="white"  marginBottom="15px">
                         Select tokens to burn
                     </Typography>
                     <Grid container spacing={2}>
                         <Grid item xs={12} lg={12}>
-                            <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                            <Typography variant="h4" color="white" marginBottom="15px">
                                 <b>Contract One:</b>
-                                <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                                <Typography variant="body2" color="white" marginBottom="15px">
                                     {ccOneContract.addressOrName}
                                 </Typography>
                             </Typography>
@@ -141,9 +141,9 @@ const Collections = () => {
                     </Grid>
                     <Grid container spacing={4}>
                         <Grid item xs={12} lg={12}>
-                            <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                            <Typography variant="h4" color="white" marginBottom="15px">
                                 <b>Contract Two:</b>
-                                <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                                <Typography variant="body2" color="white" marginBottom="15px">
                                     {ccTwoContract.addressOrName}
                                 </Typography>
                             </Typography>

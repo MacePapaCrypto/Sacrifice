@@ -76,7 +76,7 @@ const UserClaimButton = () => {
                 txIsLoading ? 
                 <button disabled>...Claiming</button> :
                 isPrepError ?
-                <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
+                <Typography variant="body1" color="white" gutterBottom>
                     
                 </Typography> :
                 <button onClick={() => write?.()}>Claim offering</button>

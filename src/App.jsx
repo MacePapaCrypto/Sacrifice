@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from "./pages/home.jsx";
 import NA from "./pages/NA";
 import Lore from "./pages/about.jsx";
-import { ChakraProvider } from '@chakra-ui/react'
+import { ThemeProvider, createTheme } from '@mui/material';
 
 import '@rainbow-me/rainbowkit/styles.css';
 
@@ -70,9 +70,21 @@ const wagmiClient = createClient({
   autoConnect: true,
 });
 
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      'DotGothic16',
+      'arial',
+      'helvetica',
+      'sans-serif'
+    ].join(','),
+  },
+})
+
 function App() {
  
   return (
+    <ThemeProvider theme={theme}>
       <WagmiConfig client={wagmiClient}>
         <RainbowKitProvider 
           chains={chains}
@@ -95,6 +107,7 @@ function App() {
           </Router>
         </RainbowKitProvider>
       </WagmiConfig>
+    </ThemeProvider>
   );
 }
 export default App;

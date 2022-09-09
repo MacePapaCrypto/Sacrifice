@@ -92,7 +92,7 @@ const LoadContractOne = (props) => {
         <>
             <div className="trash-container">
                 <div className="trash-card">
-                    <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="white"  justifyContent="center" display="flex" marginTop="15px">
+                    <Typography variant="h6" color="white"  justifyContent="center" display="flex" marginTop="15px">
                         {tokenId.toString()}
                     </Typography>
                     <button onClick={() => write?.()}>Throw Away Trash</button>
@@ -103,7 +103,7 @@ const LoadContractOne = (props) => {
         <>
             <div className="trash-container">
                 <div className="trash-card">
-                    <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="black" marginBottom="15px">
+                    <Typography variant="body1" color="black" marginBottom="15px">
                         Error grabbing token id for index: {props.tokenToSearch}
                     </Typography>
                 </div>
@@ -112,7 +112,7 @@ const LoadContractOne = (props) => {
         txError ?
         <>
             <div className="trash-container">
-                <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                <Typography variant="body1" color="white" marginBottom="15px">
                     Error loading the write function
                 </Typography>
             </div>

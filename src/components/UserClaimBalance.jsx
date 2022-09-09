@@ -30,7 +30,7 @@ const UserClaimBalance = () => {
 
     return(
         <div style={{width: "100%", justifyContent: "center", alignContent: "center"}}>
-            <Typography variant="h5" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
+            <Typography variant="h5" color="white" gutterBottom>
                 Claimable FTM: {claimableFTM}
             </Typography>
         </div>
