@@ -9,6 +9,7 @@ import LoadContractTwo from './LoadContractTwo';
 import Claims from "../components/Claims";
 import { Typography } from '@mui/material';
 
+
 const Collections = () => {
 
     let contractOneIndexes = [];
@@ -35,7 +36,6 @@ const Collections = () => {
                 console.log(error);
             }
         });
-
         const refBoundary = useRef(data);
         useEffect(() => {
             if(refBoundary.current > 20) {
@@ -47,6 +47,7 @@ const Collections = () => {
             console.log(contractOneIndexes);
         }, [data, contractOneIndexes]);
 
+
         return(
             isSuccess && contractOneIndexes.length > 0 ?
             <>
@@ -55,15 +56,15 @@ const Collections = () => {
                 ))}
             </> : 
             isLoading ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                 ...fetching contract one
             </Typography>:
             isError ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                 error loading tokens from contract one
             </Typography> : 
             contractOneIndexes.length === 0 ? 
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                 You don't have any trash tokens for this contract
             </Typography> :
             <></>
@@ -79,7 +80,6 @@ const Collections = () => {
                 console.log(error);
             }
         });
-
         const refBoundary = useRef(data);
         useEffect(() => {
             if(refBoundary.current > 20) {
@@ -99,15 +99,15 @@ const Collections = () => {
                 ))}
             </> :
             isLoading ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                 ...fetching contract two
             </Typography> :
             isError ?
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                 error loading tokens from contract two
             </Typography> : 
             contractOneIndexes.length === 0 ? 
-            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white">
+            <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                 You don't have any trash tokens for this contract
             </Typography> :
             <></>
@@ -119,25 +119,26 @@ const Collections = () => {
             <div className='select-steps'>
                 <div className='step'>
                     <Claims/>
-                    <Typography variant="h5" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
-                        Trash NFTs, get FTM
+                    
+                    <Typography variant="h5" fontFamily="arial, helvetica, sans-serif" color="white"  marginBottom="15px">
+                        Trash NFTs, Get FTM
                     </Typography>
-                    <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="white">
+                    <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="white"  marginBottom="15px">
                         Select tokens to burn
                     </Typography>
                     <div style={{display: "grid"}}>
-                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white">
+                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                             <b>Contract One:</b>
-                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white">
+                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                                 {ccOneContract.addressOrName}
                             </Typography>
                         </Typography>
                         <MappedContractOne/>
                     </div>
                     <div style={{display: "grid"}}>
-                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white">
+                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                             <b>Contract Two:</b>
-                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white">
+                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
                                 {ccTwoContract.addressOrName}
                             </Typography>
                         </Typography>
