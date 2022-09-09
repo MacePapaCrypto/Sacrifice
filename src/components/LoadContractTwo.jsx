@@ -95,7 +95,7 @@ const LoadContractTwo = (props) => {
                     <Typography variant="h6" color="white" justifyContent="center" display="flex" marginBottom="15px">
                         Token ID: {tokenId.toString()}
                     </Typography>
-                    <button onClick={() => write?.()}>Throw Away Trash</button>
+                    <button onClick={() => write?.()}>Sacrifice NFT</button>
                 </div>
             </div>
         </> :
