@@ -37,8 +37,11 @@ const LoadContractTwo = (props) => {
 
     const { config, error: prepError } = usePrepareContractWrite({
         ...ccTwoContract,
-        functionName: 'safeTransferFrom',
+        functionName: 'safeTransferFrom(address,address,uint256)',
         args: [address, trashcanAddress, tokenId !== undefined ? tokenId.toString() : id],
+        onSuccess(config) {
+            console.log("Success in prep: ", config);
+        },
         onError(prepError) {
             console.log("Error in prep 2: ", prepError);
             console.log("Address From: ", address);
