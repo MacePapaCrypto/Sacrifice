@@ -22,6 +22,7 @@ const UserClaimBalance = () => {
         args: [address],
         onSuccess(data) {
             setClaimableFTM(data !== undefined ? data.toString() : 0);
+            console.log(claimableFTM);
         },
         onError(error) {
             console.log("Balance Read Error", error);
@@ -29,6 +30,8 @@ const UserClaimBalance = () => {
     });
 
     return(
+        claimableFTM === "0" ?
+        <></> :
         <div style={{width: "100%", justifyContent: "center", alignContent: "center"}}>
             <Typography variant="h5" color="white" gutterBottom>
                 Claimable FTM: {claimableFTM}
