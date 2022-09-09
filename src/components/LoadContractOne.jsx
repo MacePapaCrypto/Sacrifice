@@ -103,7 +103,7 @@ const LoadContractOne = (props) => {
         <>
             <div className="trash-container">
                 <div className="trash-card">
-                    <Typography variant="body1" color="black" marginBottom="15px">
+                    <Typography variant="body1" color="white" marginBottom="15px">
                         Error grabbing token id for index: {props.tokenToSearch}
                     </Typography>
                 </div>
