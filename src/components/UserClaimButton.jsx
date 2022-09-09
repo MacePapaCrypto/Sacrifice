@@ -77,9 +77,9 @@ const UserClaimButton = () => {
                 <button disabled>...Claiming</button> :
                 isPrepError ?
                 <Typography variant="body1" fontFamily="arial, helvetica, sans-serif" color="white" gutterBottom>
-                    No money to collect, Fren!
+                    
                 </Typography> :
-                <button onClick={() => write?.()}>Claim Monies</button>
+                <button onClick={() => write?.()}>Claim offering</button>
             }
         </div>
     )
