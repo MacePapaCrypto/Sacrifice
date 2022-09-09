@@ -7,7 +7,7 @@ import { useContractRead, useAccount } from 'wagmi';
 import LoadContractOne from './LoadContractOne';
 import LoadContractTwo from './LoadContractTwo';
 import Claims from "../components/Claims";
-import { Typography } from '@mui/material';
+import { Typography, Grid } from '@mui/material';
 
 
 const Collections = () => {
@@ -126,24 +126,32 @@ const Collections = () => {
                     <Typography variant="h6" fontFamily="arial, helvetica, sans-serif" color="white"  marginBottom="15px">
                         Select tokens to burn
                     </Typography>
-                    <div style={{display: "grid"}}>
-                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
-                            <b>Contract One:</b>
-                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
-                                {ccOneContract.addressOrName}
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} lg={12}>
+                            <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                                <b>Contract One:</b>
+                                <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                                    {ccOneContract.addressOrName}
+                                </Typography>
                             </Typography>
-                        </Typography>
-                        <MappedContractOne/>
-                    </div>
-                    <div style={{display: "grid"}}>
-                        <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
-                            <b>Contract Two:</b>
-                            <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
-                                {ccTwoContract.addressOrName}
+                        </Grid>
+                        <Grid item xs={6} md={4} >
+                            <MappedContractOne/>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} lg={12}>
+                            <Typography variant="h4" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                                <b>Contract Two:</b>
+                                <Typography variant="body2" fontFamily="arial, helvetica, sans-serif" color="white" marginBottom="15px">
+                                    {ccTwoContract.addressOrName}
+                                </Typography>
                             </Typography>
-                        </Typography>
-                        <MappedContractTwo/>
-                    </div>
+                        </Grid>
+                        <Grid item xs={6} md={4}>
+                            <MappedContractTwo/>
+                        </Grid>
+                    </Grid>
                 </div>
             </div>
         </div>
